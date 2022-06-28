@@ -1,0 +1,1 @@
+{"errorMessage": "'queryStringParameters'", "errorType": "KeyError", "requestId": "44428d5a-a505-423a-a095-0e2ae44a7cd1", "stackTrace": ["  File \"/var/task/apigateway_lambdahandler.py\", line 9, in lambda_handler\n    transactionId = event['queryStringParameters']['transactionId']\n"]}
