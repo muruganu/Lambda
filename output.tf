@@ -7,3 +7,9 @@ output "function_name" {
 output "S3_Bucket_name" {
   value = aws_s3_bucket.lambda_s3_bucket.id
 }
+
+output "base_url" {
+  description = "Base URL for API Gateway stage."
+
+  value = aws_apigatewayv2_stage.lambda_stage.invoke_url
+}

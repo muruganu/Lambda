@@ -9,7 +9,7 @@ resource "aws_apigatewayv2_stage" "lambda_stage" {
   auto_deploy = true
 
   access_log_settings {
-    destination_arn = aws_cloudwatch_log_group.api_gw.arn
+    destination_arn = "${aws_cloudwatch_log_group.api_gw.arn}"
     format          = jsonencode({
       requestId               = "$context.requestId"
       sourceIp                = "$context.identity.sourceIp"
@@ -21,7 +21,7 @@ resource "aws_apigatewayv2_stage" "lambda_stage" {
       status                  = "$context.status"
       responseLength          = "$context.responseLength"
       integrationErrorMessage = "$context.integrationErrorMessage"
-    }
+    })
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_apigatewayv2_route" "lambada_route" {
   api_id = aws_apigatewayv2_api.api_gateway_lambda.id
 
   route_key = "GET /transactions"
-  target    = "integrations/"${aws_apigatewayv2_integration.lambda_integration.id}""
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 
 resource "aws_cloudwatch_log_group" "api_gw" {
