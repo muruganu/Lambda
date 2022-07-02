@@ -9,7 +9,5 @@ output "S3_Bucket_name" {
 }
 
 output "base_url" {
-  description = "Base URL for API Gateway stage."
-
-  value = aws_apigatewayv2_stage.lambda_stage.invoke_url
+  value = aws_api_gateway_deployment.api_deploy.invoke_url
 }
