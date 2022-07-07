@@ -18,7 +18,6 @@ def lambda_handler(event, context):
         instances = ec2.instances.filter(
             Filters=[{'Name': 'instance-state-name',
                       'Values': ['running']}])
-        print("Instances", )
 
         # Stop the instances
         for instance in instances:
