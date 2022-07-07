@@ -3,7 +3,7 @@ import boto3
 
 def lambda_handler(event, context):
 
-    # Get list of regions
+    # Get list of regions using python list comprehension
     ec2_client = boto3.client('ec2')
     regions = [region['RegionName']
                for region in ec2_client.describe_regions()['Regions']]
